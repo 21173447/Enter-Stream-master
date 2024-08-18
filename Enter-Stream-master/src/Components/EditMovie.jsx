@@ -15,7 +15,7 @@ const EditMovie = () => {
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/movies/${id}`);
+        const response = await fetch(`http://localhost:5000/movies/${id}`);
         if (!response.ok) throw new Error('Movie not found');
         const data = await response.json();
         setTitle(data.title);
