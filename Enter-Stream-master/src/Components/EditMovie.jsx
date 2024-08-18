@@ -70,7 +70,7 @@ const EditMovie = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-gray-50 rounded-lg">
-      <h1 className="text-2xl font-semibold mb-6">Edit Movie</h1>
+      <h1 className="text-2xl  mb-7">Edit Movie</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

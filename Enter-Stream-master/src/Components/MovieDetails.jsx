@@ -51,7 +51,7 @@ const MovieDetails = () => {
           />
         </div>
         <div className="flex-1 md:ml-6">
-          <h1 className="text-3xl font-bold mb-4">{movie.title}</h1>
+          <h1 className="text-6xl font-bold mb-20">{movie.title}</h1>
           <p className="text-gray-700 text-lg mb-2">{movie.description}</p>
           <p className="text-gray-700 text-lg mb-2"><strong>Type:</strong> {movie.type}</p>
           <p className="text-gray-700 text-lg mb-2"><strong>Country:</strong> {movie.country}</p>

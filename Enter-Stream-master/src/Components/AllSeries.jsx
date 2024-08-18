@@ -85,7 +85,7 @@ const AllSeries = () => {
   {location.pathname !== '/series' && (
     <button
       onClick={handleToggle}
-      className="w-20 h-12 flex items-center justify-center bg-blue-500 text-white rounded-full hover:bg-blue-600"
+      className="w-20 h-12 flex items-center justify-center bottom-1 bg-blue-500 text-white rounded-full hover:bg-blue-600"
     >
       More
     </button>

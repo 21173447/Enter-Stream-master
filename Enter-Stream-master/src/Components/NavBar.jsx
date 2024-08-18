@@ -27,7 +27,7 @@ const NavBar = () => {
       <nav className="flex flex-col justify-between items-center w-[90%] mx-[5%] py-8 text-2xl relative z-10">
         <div className="flex justify-between w-full">
           <Link to="/" className="">
-            <span className="text-blue-400">Enter-</span>
+            <span className="text-blue-500">Enter-</span>
             <span className="text-white">Stream</span>
           </Link>
 
@@ -47,7 +47,7 @@ const NavBar = () => {
           </div>
 
           <div className="flex items-center gap-6">
-            <button className="bg-[#a6c1ee] text-white px-5 py-1 rounded-full hover:bg-[#87acec] text-xl">
+            <button className="bg-blue-500 text-white px-5 py-1 rounded-full hover:bg-[#87acec] text-xl">
               SUBSCRIBE
             </button>
 
