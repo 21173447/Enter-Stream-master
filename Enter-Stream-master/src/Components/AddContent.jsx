@@ -6,7 +6,7 @@ const AddContent = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [isEditMode, setIsEditMode] = useState(false);
-  const [movieData, setMovieData] = useState({
+  const [ContentData, setMovieData] = useState({
     title: '',
     type: '', 
     description: '',
@@ -68,7 +68,7 @@ const AddContent = () => {
   const submitForm = async (e) => {
     e.preventDefault();
 
-    const endpoint = movieData.type === 'movie' ? 'movies' : 'series';
+    const endpoint = ContentData.type === 'movie' ? 'movies' : 'series';
     const url = isEditMode ? `http://localhost:5000/${endpoint}/${id}` : `http://localhost:5000/${endpoint}`;
     const method = isEditMode ? 'PUT' : 'POST';
 
@@ -78,7 +78,7 @@ const AddContent = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(movieData),
+        body: JSON.stringify(ContentData),
       });
 
       if (!response.ok) {
@@ -128,7 +128,7 @@ const AddContent = () => {
                   name="title"
                   className="border rounded w-full py-2 px-3 mb-2"
                   placeholder="Movie / series name"
-                  value={movieData.title}
+                  value={ContentData.title}
                   onChange={handleChange}
                   required
                 />
@@ -144,7 +144,7 @@ const AddContent = () => {
                   className="border rounded w-full py-2 px-3"
                   rows="4"
                   placeholder="Movie/Series Description"
-                  value={movieData.description}
+                  value={ContentData.description}
                   onChange={handleChange}
                   required
                 ></textarea>
@@ -158,7 +158,7 @@ const AddContent = () => {
                   id="country"
                   name="country"
                   className="border rounded w-full py-2 px-3"
-                  value={movieData.country}
+                  value={ContentData.country}
                   onChange={handleChange}
                   required
                 >
@@ -221,7 +221,7 @@ const AddContent = () => {
                   name="date"
                   className="border rounded w-full py-2 px-3"
                   placeholder="YYYY"
-                  value={movieData.date}
+                  value={ContentData.date}
                   onChange={handleChange}
                   required
                 />
@@ -235,7 +235,7 @@ const AddContent = () => {
                     name="type"
                     value="movie"
                     className="mr-1 accent-blue-500"
-                    checked={movieData.type === 'movie'}
+                    checked={ContentData.type === 'movie'}
                     onChange={handleChange}
                   />
                   <label htmlFor="movie">Movie</label>
@@ -248,7 +248,7 @@ const AddContent = () => {
                     name="type"
                     value="series"
                     className="mr-1 accent-blue-500"
-                    checked={movieData.type === 'series'}
+                    checked={ContentData.type === 'series'}
                     onChange={handleChange}
                   />
                   <label htmlFor="series">Series</label>
