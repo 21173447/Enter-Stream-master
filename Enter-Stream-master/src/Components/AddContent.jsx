@@ -220,7 +220,7 @@ const AddContent = () => {
                   id="date"
                   name="date"
                   className="border rounded w-full py-2 px-3"
-                  placeholder="YYYY"
+                  placeholder="2024/08/21"
                   value={ContentData.date}
                   onChange={handleChange}
                   required
