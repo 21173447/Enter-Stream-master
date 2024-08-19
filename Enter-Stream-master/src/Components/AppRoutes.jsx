@@ -20,7 +20,7 @@ const AppRoutes = () => {
       <Route path="/edit/movie/:id" element={<EditMovie />} /> 
       <Route path="/edit/series/:id" element={<EditSeries />} />
       <Route path="/add-content" element={<AddContent />} />
-      <Route path="*" element={<HomePage />} />
+    
     </Routes>
   );
 };

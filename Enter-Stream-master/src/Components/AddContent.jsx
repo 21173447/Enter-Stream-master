@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams, Link } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const AddContent = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [isEditMode, setIsEditMode] = useState(false);
-  const [ContentData, setMovieData] = useState({
+  const [ContentData, setContentData] = useState({
     title: '',
     type: '', 
     description: '',
@@ -24,7 +24,7 @@ const AddContent = () => {
           const response = await fetch(`http://localhost:5000/${id}`);
           if (!response.ok) throw new Error('Content not found');
           const data = await response.json();
-          setMovieData({
+          setContentData({
             title: data.title,
             type: data.type,
             description: data.description,
@@ -50,7 +50,7 @@ const AddContent = () => {
         reader.onloadend = () => {
           const base64Image = reader.result;
           setImagePreview(base64Image);
-          setMovieData((prevState) => ({
+          setContentData((prevState) => ({
             ...prevState,
             image: base64Image,
           }));
@@ -58,7 +58,7 @@ const AddContent = () => {
         reader.readAsDataURL(file);
       }
     } else {
-      setMovieData((prevState) => ({
+      setContentData((prevState) => ({
         ...prevState,
         [name]: value,
       }));
@@ -82,13 +82,14 @@ const AddContent = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to save movie/series');
+        const errorText = await response.text(); 
+        throw new Error(`Failed to save movie/series: ${errorText}`);
       }
 
       toast.success(`Movie/Series ${isEditMode ? 'updated' : 'added'} successfully`);
       navigate('/');
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error:', error.message); 
       toast.error('Failed to save movie/series');
     }
   };
@@ -163,7 +164,6 @@ const AddContent = () => {
                   required
                 >
                   <option value="">Select Country</option>
-                 
                   <option value="South Africa">South Africa</option>
                   <option value="United States">United States</option>
                   <option value="Canada">Canada</option>
@@ -208,6 +208,7 @@ const AddContent = () => {
                   <option value="Israel">Israel</option>
                   <option value="Lebanon">Lebanon</option>
                   <option value="Jordan">Jordan</option>
+                
                 </select>
               </div>
 
@@ -220,7 +221,7 @@ const AddContent = () => {
                   id="date"
                   name="date"
                   className="border rounded w-full py-2 px-3"
-                  placeholder="2024/08/21"
+                  placeholder="2024/08/01"
                   value={ContentData.date}
                   onChange={handleChange}
                   required
@@ -264,7 +265,6 @@ const AddContent = () => {
                 </button>
               </div>
             </form>
-           
           </div>
         </div>
       </div>

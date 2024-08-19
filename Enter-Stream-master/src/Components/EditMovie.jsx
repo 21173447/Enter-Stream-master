@@ -33,6 +33,8 @@ const EditMovie = () => {
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
+
+    //This checks if a file was actually selected.
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {

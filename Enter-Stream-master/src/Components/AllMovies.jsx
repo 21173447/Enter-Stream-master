@@ -17,6 +17,8 @@ const AllMovies = () => {
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
         setMovies(data);
+
+        //catches any errors that occur
       } catch (error) {
         setError(error.message);
       } finally {
