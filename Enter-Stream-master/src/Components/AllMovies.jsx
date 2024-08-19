@@ -53,7 +53,7 @@ const AllMovies = () => {
   return (
     <section className="p-4">
       <div className="flex flex-col justify-between items-center w-[90%] mx-[5%] py-8 text-2xl relative z-10">
-        <h5 className="text-xl">LATEST MOVIES</h5>
+        <h5 className="text-4xl">LATEST MOVIES</h5>
         {location.pathname === '/movies' && (
           <div className="ml-auto">
             <button
@@ -65,7 +65,9 @@ const AllMovies = () => {
           </div>
         )}
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-0 py-40">
+
+      <div className='flex flex-col items-center'>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 py-40">
         {movies.length === 0 ? (
           <p>No movies available</p>
         ) : (
@@ -78,12 +80,16 @@ const AllMovies = () => {
               <img
                 src={movie.poster}
                 alt={movie.title}
-                className="w-full h-auto max-w-[150px] max-h-[225px] object-cover  shadow-md"
+                className="w-full h-auto max-w-[700px] max-h-[280px] object-cover  shadow-md"
               />
             </div>
           ))
         )}
       </div >
+
+        
+      </div>
+    
 
       <div className='flex justify-end'>
   {location.pathname !== '/movies' && (

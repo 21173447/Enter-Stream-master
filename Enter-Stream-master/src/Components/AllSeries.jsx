@@ -50,7 +50,7 @@ const AllSeries = () => {
   return (
     <section className="p-4">
       <div className="flex flex-col justify-between items-center w-[90%] mx-[5%] py-8 text-2xl relative z-10">
-        <h5 className="text-xl">LATEST SERIES</h5>
+        <h5 className="text-4xl">LATEST SERIES</h5>
         {location.pathname === '/series' && (
           <button
             onClick={handleAddClick}
@@ -60,7 +60,10 @@ const AllSeries = () => {
           </button>
         )}
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-0 py-40">
+
+      <div className='flex flex-col items-center'>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 py-40">
         {series.length === 0 ? (
           <p>No series available</p>
         ) : (
@@ -73,12 +76,16 @@ const AllSeries = () => {
               <img
                 src={serie.poster}
                 alt={serie.title}
-                className="w-full h-auto max-w-[150px] max-h-[225px] object-cover  shadow-md"
+                className="w-full h-auto max-w-[700px] max-h-[280px] object-cover  shadow-md"
               />
             </div>
           ))
         )}
       </div>
+
+
+      </div>
+     
 
 
       <div className="flex justify-end">
