@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import Spinner from '../Components/Spinner';
 
 const AllMovies = () => {
   const [movies, setMovies] = useState([]);
@@ -47,13 +48,15 @@ const AllMovies = () => {
     navigate('/add-content');
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <div><Spinner /></div>;
+
+
   if (error) return <p>Error: {error}</p>;
 
   return (
     <section className="p-4">
       <div className="flex flex-col justify-between items-center w-[90%] mx-[5%] py-8 text-2xl relative z-10">
-        <h5 className="text-4xl">LATEST MOVIES</h5>
+        <h5 className="text-4xl ">LATEST MOVIES</h5>
         {location.pathname === '/movies' && (
           <div className="ml-auto">
             <button

@@ -13,8 +13,6 @@ const NavBar = () => {
     '/movies': 'LATEST MOVIES',
     '/series': 'LATEST SERIES',
     '/add-content': 'ADD A MOVIE/SERIES'
-
-
   };
 
   const pageTitle = titles[currentPath] || '';
@@ -54,7 +52,7 @@ const NavBar = () => {
           </div>
         </div>
 
-        <div className=" mr-9 text-3xl text-white py-20">{pageTitle}</div>
+        <div className=" mr-9 text-5xl font-bold text-white py-20">{pageTitle}</div>
       </nav>
     </header>
   );
